@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>買い物メモ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>買い物メモ</h1>
+            <button id="reset-btn" class="icon-btn" title="翌朝リセット（全購入済みを未購入に戻す）">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+                    <path d="M3 3v5h5"></path>
+                </svg>
+                翌朝リセット
+            </button>
+        </header>
+
+        <form id="add-form">
+            <input type="text" id="item-name" placeholder="買うもの" autocomplete="off" required>
+            <input type="text" id="item-category" list="category-options" placeholder="カテゴリ" value="" autocomplete="off"
+                required>
+            <datalist id="category-options">
+            </datalist>
+            <input type="number" id="item-quantity" placeholder="個数" value="1" min="1" required>
+            <button type="submit" id="add-btn">追加</button>
+        </form>
+
+        <section class="list-section">
+            <h2>未購入 <span id="unpurchased-count" class="badge">0</span></h2>
+            <ul id="unpurchased-list" class="item-list"></ul>
+        </section>
+
+        <section class="list-section" id="purchased-section">
+            <h2>購入済み <span id="purchased-count" class="badge">0</span></h2>
+            <ul id="purchased-list" class="item-list purchased"></ul>
+        </section>
+
+        <section class="list-section category-management">
+            <h2>カテゴリ設定</h2>
+            <div id="category-list" class="category-badges"></div>
+        </section>
+
+        <section class="list-section data-management">
+            <h2>データ管理</h2>
+            <button id="clear-data-btn" class="danger-btn">ストレージのデータをすべて消去</button>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
